@@ -1,5 +1,7 @@
 <?php
 
+use App\CategoryModel;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +15,14 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/contact', 'ContactController@index');
+Route::get('/about', 'ContactController@about');
+
+Route::get('/add', function() {
+    $category = new CategoryModel;
+    $category->name = 'Test';
+    $category->description = 'Deskripsi Gan';
+    $category->save();
 });

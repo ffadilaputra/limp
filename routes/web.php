@@ -20,9 +20,11 @@ Route::get('/', function () {
 Route::get('/contact', 'ContactController@index');
 Route::get('/about', 'ContactController@about');
 
-Route::get('/add', function() {
-    $category = new CategoryModel;
-    $category->name = 'Test';
-    $category->description = 'Deskripsi Gan';
-    $category->save();
-});
+Route::get('/category/add', 'CategoryController@create');
+Route::post('/category/update', 'CategoryController@update');
+Route::get('/category', 'CategoryController@read');
+Route::get('/category/{id}','CategoryController@show');
+Route::get('/category/delete/{id}','CategoryController@delete');
+Route::get('/category/edit/{id}','CategoryController@edit');
+
+

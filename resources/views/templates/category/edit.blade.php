@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="col-md-6">
-            {{ Form::open(array('url' => '/category/update','method'=>'POST')) }}
+            {!! Form::model($cat, ['method' => 'PATCH','route' => ['category.update', $cat->id]]) !!}
             <div class="form-group">
                 <label for="name">Name</label>
                 <input value="{{ $cat->name }}" type="text" name="name" class="form-control">
@@ -16,7 +16,7 @@
                 <input type="submit" value="Simpan" class="btn btn-primary">
                 <input type="reset" value="Batal" class="btn btn-default">
             </div>
-            {{ Form::close() }}
+            {!! Form::close() !!}
     </div>
 </div>
 

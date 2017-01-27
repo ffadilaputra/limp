@@ -1,7 +1,13 @@
 @extends('templates.index')
 @section('content')
+
 <div class="container">
-    <div class="col-md-9">
+<div class="panel panel-default">
+  <div class="panel-heading">
+       <h4>Data Kategori</h4>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-11">
     @if ($message = Session::get('alert-success'))
         <div class="alert alert-success alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -10,7 +16,7 @@
             {{ $message }}
         </div>
     @endif
-    <div class="form-group">
+     <div class="form-group">
         <a href="{{ route('category.create' )}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Tambah Kategori</a>      
     </div>
         <table id="main" class="table table-bordered">
@@ -40,4 +46,7 @@
         </table>
     </div>
 </div>
+  </div>
+</div>
+    
 @stop

@@ -14,7 +14,7 @@ use App\CategoryModel;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('templates.admin.dashboard');
 });
 
 Route::get('/contact', 'ContactController@index');
@@ -23,4 +23,7 @@ Route::get('/about', 'ContactController@about');
 Route::resource('category', 'CategoryController');
 Route::get('category/del/{id}','CategoryController@destroy');
 
+Route::resource('pengeluaran', 'PengeluaranController');
+Route::get('pengeluaran/del/{id}','PengeluaranController@destroy');
 
+Route::resource('notes', 'NotesController');

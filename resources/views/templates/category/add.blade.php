@@ -3,6 +3,10 @@
 
 <div class="container">
     <div class="col-md-6">
+
+    @if(count($errors) > 0)
+        @include('templates.common.errors')
+    @endif
             {!! Form::open(['route' => 'category.store']) !!}
             <div class="form-group">
                 <label for="name">Name</label>

@@ -23,7 +23,7 @@ Route::get('/about', 'ContactController@about');
 Route::resource('category', 'CategoryController');
 Route::get('category/del/{id}','CategoryController@destroy');
 
-Route::resource('pengeluaran', 'PengeluaranController');
-Route::get('pengeluaran/del/{id}','PengeluaranController@destroy');
+Route::resource('transac', 'TransactionController');
+Route::get('transac/d/{id}','TransactionController@destroy');
 
 Route::resource('notes', 'NotesController');

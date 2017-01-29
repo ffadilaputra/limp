@@ -16,6 +16,7 @@ class CreateCateTable extends Migration
         Schema::create('tb_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('tipe');
             $table->text('description');
             $table->timestamps();
         });

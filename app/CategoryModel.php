@@ -8,5 +8,5 @@ class CategoryModel extends Model
 {
     //
     protected $table = 'tb_category'; 
-    protected $fillable = ['name','description'];
+    protected $fillable = ['name','tipe','description'];
 }

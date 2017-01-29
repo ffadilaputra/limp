@@ -28,12 +28,14 @@ class CategoryController extends Controller
     {
 
         $this->validate($request,[
-            'name' => 'required | unique:posts| max:255',
+            'name' => 'required',
+            'tipe' => 'required|not_in:-- Pilih --',
             'description' => 'required',
         ]);
 
         $cat = new CategoryModel();
         $cat->name = $request->name;
+        $cat->tipe = $request->tipe;
         $cat->description = $request->description;
         $cat->save();
         return redirect()->route('category.index')->with('alert-success', 'Data Berhasil Disimpan.');
@@ -59,6 +61,7 @@ class CategoryController extends Controller
     {
         $cat = CategoryModel::findOrFail($id);
         $cat->name = $request->name;
+        $cat->tipe = $request->tipe;
         $cat->description = $request->description;
         $cat->save();
         return redirect()->route('category.index')->with('alert-success', 'Data Berhasil Diubah.');

@@ -41,6 +41,10 @@
             $(".wrapper").toggleClass("active");
             });
         });
+        $(document).on('change','.fk_category',function(){
+            var tipe = $('.fk_category option:selected').attr('tipe');
+            $('.tipe').val(tipe);
+        })
         </script>
     </body>
 </html>

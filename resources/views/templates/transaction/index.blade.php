@@ -1,10 +1,11 @@
-@extends('templates.index') @section('content')
+@extends('templates.index') 
+@section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-18">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4>Data Pegeluaran Anda</h4>
+                    <h4>Data Transaksi Anda</h4>
                 </div>
                 <div class="panel-body">
                     @if ($message = Session::get('alert-success'))
@@ -15,32 +16,32 @@
                     </div>
                     @endif
                     <div class="form-group">
-                        <a href="{{ route('pengeluaran.create' )}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Tambah Pengeluaran</a>
+                        <a href="{{ route('transac.create' )}}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Tambah Transaksi</a>
                     </div>
                     <table id="main" class="table table-bordered">
                         <thead>
                             <tr>
                                 <td>#</td>
-                                <td>Nama</td>
-                                <td>Tanggal Pengeluaran</td>
+                                <td>Kategori</td>
+                                <td>Tipe</td>
                                 <td>Nominal</td>
-                                <td>Jenis</td>
+                                <td>Tanggal Pengeluaran</td>
                                 <td>Opsi</td>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $i=1 ?> 
-                            @foreach($peng as $mamam )
+                            @foreach($trs as $mamam )
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $mamam->nama }}</td>
-                                <td>{{ $mamam->tgl_pengeluaran }}</td>
-                                <td>{{ $mamam->nominal }}</td>
                                 <td>{{ $mamam->name }}</td>
+                                <td>{{ $mamam->tipe }}</td>
+                                <td>{{ $mamam->nominal }}</td>
+                                <td>{{ $mamam->transaction_date	 }}</td>
                                 <td>
-                                    <a class="btn btn-default" href="{{ route('pengeluaran.show', $mamam->id) }}"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-default" href="{{ route('pengeluaran.edit', $mamam->id) }}"><i class="fa fa-pencil"></i></a>
-                                    <a class="btn btn-default" href="/pengeluaran/del/{{ $mamam->id }}" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-default" href="{{ route('transac.show', $mamam->id) }}"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-default" href="{{ route('transac.edit', $mamam->id) }}"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-default" href="/transac/d/{{ $mamam->id }}" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

@@ -24,6 +24,7 @@
             <tr>
             <td>#</td>
             <td>Nama</td>
+            <td>Tipe</td>
             <td>Keterangan</td>
             <td>Opsi</td>
             </tr>
@@ -34,6 +35,7 @@
                 <tr>
                 <td>{{ $i++ }}</td>
                 <td>{{ $mamam->name }}</td>
+                <td>{{ $mamam->tipe }}</td>
                 <td>{{ $mamam->description }}</td>
                 <td>                    
                     <a class="btn btn-default" href ="{{ route('category.show', $mamam->id) }}"><i class="fa fa-eye"></i></a>

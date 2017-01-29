@@ -9,14 +9,7 @@
       </a>
       <ul class="nav navbar-nav">
       <li class=""><a href="/">Home</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transaksi
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="{{ route('pengeluaran.index' )}}">Pengeluaran</a></li>
-          <li><a href="#">Pemasukan</a></li>
-        </ul>
-      </li>
+      <li><a href="{{ route('transac.index' )}}">Transaksi</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Catatan
         <span class="caret"></span></a>

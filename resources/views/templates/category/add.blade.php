@@ -13,7 +13,16 @@
                 <input type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <label for="tipe">Tipe</label>
+                <select name="tipe" class="form-control">
+                    <option value="">-- Pilih --</option>
+                    <option value="pemasukan">Pemasukan</option>
+                    <option value="pengeluaran">Pengeluaran</option>
+                    <option value="hutang">Hutang</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Keterangan</label>
                 <textarea name="description" class="form-control" rows="3"></textarea>
             </div>
             <div class="form-group">

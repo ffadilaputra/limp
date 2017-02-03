@@ -3,39 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\NoteModel;
 
 class NotesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
-    {
-        //
-        return view('templates.notes.index');
+    {   
+        $n = DB::table('tb_note')
+                 ->leftJoin('tb_category_notes','tb_note.fk_c_note','=','tb_category_notes.id')
+                 ->select('tb_note.*','tb_category_notes.c_name')
+                 ->get();
+        
+        $c = DB::table('tb_category_notes')->get();
+        return view('templates.notes.index',compact('n','c'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $n = new NoteModel();
+        $n->note_name = $request->catatan;
+        $n->note_desc = $request->des;
+        $n->fk_c_note = $request->c_cat;
+        $n->save();
+        return redirect()->route('notes.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

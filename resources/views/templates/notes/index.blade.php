@@ -7,51 +7,61 @@
                 <h3 class="panel-title">Tambah Catatan</h3>
             </div>
             <div class="panel-body">
+                {!! Form::open(['route' => 'notes.store']) !!}
                 <div class="form-group">
                 <label for="catatan">Nama Catatan</label>
                     <input name="catatan" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                 <label for="catatan">Keterangan</label>
-                    <textarea class="form-control" name="" rows="4"></textarea>
+                    <textarea name="des" class="form-control" rows="4"></textarea>
                 </div>
                 <div class="form-group">
                 <label for="catatan">Jenis</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">Test</option>
-                    </select>
+                <select class="form-control" name="c_cat">
+                    <option value="">--Pilih--</option>
+                    @foreach($c as $caty)                
+                        <option value="{{ $caty->id }}">{{ $caty->c_name }}</option>
+                    @endforeach
+                </select>      
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                 <button type="submit" class="btn btn-default">Simpan</button>
                 <button type="reset" class="btn btn-default">Batal</button>
+                 {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
+    <?php $i=1 ?>
+        @foreach($n as $ns)
        <div class="panel-group">
         <div class="panel panel-default">
             <div class="panel-heading">
             <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse1">Nama Catatan
+                <a data-toggle="collapse" href="#collapse{{$ns->id}}">Notes {{ $i++ }}
                 </a>
             </h4>
             </div>
-            <div id="collapse1" class="panel-collapse collapse">
+            <div id="collapse{{$ns->id}}" class="panel-collapse collapse">
             <ul class="list-group">
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label for="">Name</label>
+                        <label for="">Nama Catatan</label>
+                        <p>{{$ns->note_name}}</p>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label for="">Ket</label>
+                        <label for="">Keterangan</label>
+                        <p>{{$ns->note_desc}}</p>
                     </div>
                 </li>
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label for="">Jeni</label>
+                        <label for="">Jenis Catatan</label>
+                        <p>{{$ns->c_name}}</p>
                     </div>
                 </li>
             </ul>
@@ -62,6 +72,7 @@
             </div>
         </div>
         </div>
+        @endforeach
     </div>
     
 </div>

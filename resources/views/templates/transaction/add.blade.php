@@ -9,7 +9,6 @@
             {!! Form::open(['route' => 'transac.store']) !!}
             <div class="form-group">
                 <label for="biaya">Kategori</label>
-                
                 <select class="form-control fk_category" name="fk_category" >
                 <option value=""> --Pilih-- </option>
                 @foreach($cat as $caty)                
@@ -30,7 +29,7 @@
               <div class="form-group">
                 <label for="tgl">Tanggal Transaksi</label>
                 <div class="input-group">
-                    <input value="" id="tg" name="t_trans" type="text" class="form-control"  readonly>
+                    <input id="tg" name="t_trans" type="text" class="form-control"  readonly>
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>

@@ -11,7 +11,6 @@ class CategoryController extends Controller
 
     public function index()
     {
-        //
         $cat = CategoryModel::all();
         return view('templates.category.view',compact('cat'));
     }
@@ -19,7 +18,6 @@ class CategoryController extends Controller
 
     public function create()
     {
-        //
         return view('templates.category.add');
     }
 
@@ -41,21 +39,17 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
-
     public function show($id)
     {
         $cat = CategoryModel::findorFail($id);
         return view('templates.category.show',compact('cat'));
     }
 
-
     public function edit($id)
     {
-        //
         $cat = CategoryModel::findOrFail($id);
         return view('templates.category.edit',compact('cat'));
     }
-
 
     public function update(Request $request, $id)
     {
@@ -67,10 +61,8 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 
-
     public function destroy($id)
     {
-        //
         $cat = CategoryModel::findOrFail($id);
         $cat->delete();
         return redirect()->route('category.index')->with('alert-success', 'Data Berhasil Dihapus.');

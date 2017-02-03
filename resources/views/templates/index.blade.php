@@ -25,22 +25,6 @@
         <script src="{{ URL::asset('lib/bootstrap-datatables/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ URL::asset('lib/bootstrap-datatables/js/dataTables.bootstrap.min.js') }}"></script>
         <script src="{{ URL::asset('lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-        <script type="text/javascript">
-        $(document).ready(function() {
-            $('#tg').datepicker({
-                format:"yyyy/m/dd",
-                todayHighlight:true,
-                clearBtn:true 
-            });
-            $('#main').DataTable();
-            $(".push_menu").click(function(){
-            $(".wrapper").toggleClass("active");
-            });
-        });
-        $(document).on('change','.fk_category',function(){
-            var tipe = $('.fk_category option:selected').attr('tipe');
-            $('.tipe').val(tipe);
-        })
-        </script>
+        <script src="{{ URL::asset('js/main.js') }}"></script>
     </body>
 </html>

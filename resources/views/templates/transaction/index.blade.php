@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-18">
+        <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4>Data Transaksi Anda</h4>
@@ -49,6 +49,33 @@
                     </table>
                 </div>
             </div>
+        </div>
+        <div class="col-md-3">
+        <div class="panel panel-default">
+                <div class="panel-body">
+                    <strong>Tanggal Saat Ini</strong>
+                    <br>
+                    <strong>{{ $now }}</strong>
+                </div>
+            </div>
+            <div class="list-group">
+                <a class="list-group-item active">
+                    <h4 class="list-group-item-heading">Total Pengeluaran</h4>
+                    <p class="list-group-item-text">
+                        <strong>Total : {{ $total_peng }}</strong><br>
+                        <strong>Bulan Ini : {{ $total_bln }}</strong>
+                    </p>
+                </a>
+            </div>
+            <div class="list-group">
+                <a class="list-group-item active">
+                    <h4 class="list-group-item-heading">Total Pemasukan</h4>
+                    <p class="list-group-item-text">
+                        <strong>Total : {{ $total_pem }}</strong><br>
+                        <strong>Bulan Ini : {{ $total_pem_bln }}</strong>
+                    </p>
+                </a>
+            </div>   
         </div>
     </div>
 </div>

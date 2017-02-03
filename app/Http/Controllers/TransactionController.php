@@ -12,12 +12,32 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        
+        $get_month = Carbon::now()->month;
+        $now = Carbon::today()->formatLocalized('%d %B %Y');
+
+        $total_peng = DB::table('tb_transaction')
+                   ->where('tipe','pengeluaran')
+                   ->sum('nominal');
+
+        $total_pem = DB::table('tb_transaction')
+                   ->where('tipe','pemasukan')
+                   ->sum('nominal');                   
+
+        $total_bln = DB::table('tb_transaction')
+                   ->where('tipe','pengeluaran')
+                   ->whereMonth('transaction_date',$get_month)
+                   ->sum('nominal');
+
+        $total_pem_bln = DB::table('tb_transaction')
+                   ->where('tipe','pemasukan')
+                   ->whereMonth('transaction_date',$get_month)
+                   ->sum('nominal');                              
+
         $trs = DB::table('tb_transaction')
                  ->leftJoin('tb_category','tb_transaction.fk_category','=','tb_category.id')
                  ->select('tb_transaction.*','tb_category.name')
                  ->get();
-        return view('templates.transaction.index',compact('trs'));         
+        return view('templates.transaction.index',compact('trs','now','total_peng','total_bln','total_pem_bln','total_pem'));         
     }       
 
     public function create()
@@ -34,7 +54,7 @@ class TransactionController extends Controller
             'fk_category' => 'required|not_in:-- Pilih --',
             'tipe' => 'required',
             'nominal' => 'required',
-            'transaction_date' => 'required',
+            't_trans' => 'required',
             'keterangan' => 'required',
         ]);
 
@@ -83,9 +103,4 @@ class TransactionController extends Controller
         $tr->delete();
         return redirect()->route('transac.index')->with('alert-success','Data Berhasil Dihapus');
     }
-
-    public function sumByDay(){
-        
-    }
-
 }

@@ -27,3 +27,9 @@ Route::resource('transac', 'TransactionController');
 Route::get('transac/d/{id}','TransactionController@destroy');
 
 Route::resource('notes', 'NotesController');
+
+Route::resource('c_note','CatNotesController');
+Route::get('c/del/{id}','CatNotesController@destroy');
+
+Route::resource('tb', 'TabunganController');
+Route::get('tb/del/{id}','TabunganController@destroy');

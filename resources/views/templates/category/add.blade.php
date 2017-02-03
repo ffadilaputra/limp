@@ -18,7 +18,6 @@
                     <option value="">-- Pilih --</option>
                     <option value="pemasukan">Pemasukan</option>
                     <option value="pengeluaran">Pengeluaran</option>
-                    <option value="hutang">Hutang</option>
                 </select>
             </div>
             <div class="form-group">
